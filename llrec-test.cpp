@@ -4,6 +4,41 @@
 #include "llrec.h"
 using namespace std;
 
+struct IsEven
+{
+    bool operator()(int num) {
+        return (num % 2) == 0;
+    }
+};
+
+struct IsOdd
+{
+    bool operator()(int num) {
+        return (num % 2) != 0;
+    }
+};
+
+bool IsNeg(int v)
+{ return v < 0; }
+
+struct IsLessEquals
+{
+	int num2;
+	IsLessEquals(int val) : num2(val){}
+    bool operator()(int num1) {
+        return (num1 <= num2);
+    }
+};
+
+struct IsGreater
+{
+	int num2;
+	IsGreater(int val) : num2(val){}
+    bool operator()(int num1) {
+        return (num1 > num2);
+    }
+};
+
 /**
  * Reads integers (separated by whitespace) from a file
  * into a linked list.
@@ -86,6 +121,27 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+     Node *smaller = NULL;
+    Node *larger = NULL;
+    llpivot(head, smaller, larger, 12);
+
+    // Filter out even nodes from smaller list
+    // Print the resulting lists
+    std::cout << "Smaller list:" << std::endl;
+    print(smaller);
+    // for (Node *current = smaller; current != NULL; current = current->next) {
+    //     std::cout << current->val << " ";
+    // }
+    std::cout << std::endl;
+
+    std::cout << "Larger list:" << std::endl;
+    print(larger);
+    // for (Node *current = larger; current != NULL; current = current->next) {
+    //     std::cout << current->val << " ";
+    // }
+    std::cout << std::endl;
+    Node * nodejs = llfilter(head, Comp pred)
+    std::cout << 
 
 
 
